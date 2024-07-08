@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvester Result</title>
+</head>
+<body>
+    <h1>Harvester Result</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% else %}
+        <h2>Emails</h2>
+        <ul>
+            {% for email in emails %}
+                <li>{{ email }}</li>
+            {% endfor %}
+        </ul>
+        <h2>IPs</h2>
+        <ul>
+            {% for ip in ips %}
+                <li>{{ ip }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

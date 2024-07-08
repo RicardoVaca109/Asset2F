@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Assetfinder</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/resultsAssetfinder.css') }}">
+</head>
+<body>
+    <h1>Resultados de Assetfinder</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% elif subdomains %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Subdominio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subdomain in subdomains %}
+                    <tr>
+                        <td>{{ subdomain }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('download', file_path=file_path) }}">Descargar Excel</a>
+    {% else %}
+        <p>No se encontraron subdominios.</p>
+    {% endif %}
+    <a href="/">Volver</a>
+</body>
+</html>
